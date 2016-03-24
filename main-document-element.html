@@ -1,20 +1,27 @@
     <dom-module id="main-document-element">
       <template>
-        <p>
+        <p class="hello">
           Hi! I'm a Custom element 
         </p>
         <p id='header'></p>
         <p>{{userName}}</p>
       </template>
+      <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.0.min.js"></script>
       <script>
           Polymer({
             is: 'main-document-element',
             ready: function() {
                 // access a local DOM element by ID using this.$
                 this.$.header.textContent = 'Hello!';
+                // we can use jQuery in custom-element
+                $(this.$.header).html('<b>Hello</b> World!');
+                // ref: http://jsbin.com/purudu/edit?html,output
+                // use Polymer.dom to select javascript element
+                var ele=Polymer.dom(this.root).querySelector('.hello'); // ele is a javascript element
+                $(ele).text($(ele).text()+" we can use jquery in polymer custom element");
             },
             properties:{
-                userName: String
+                userName: String   // user-name on attribute side
             }
           });
       </script>
