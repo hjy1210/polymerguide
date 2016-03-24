@@ -1,0 +1,21 @@
+    <dom-module id="main-document-element">
+      <template>
+        <p>
+          Hi! I'm a Custom element 
+        </p>
+        <p id='header'></p>
+        <p>{{userName}}</p>
+      </template>
+      <script>
+          Polymer({
+            is: 'main-document-element',
+            ready: function() {
+                // access a local DOM element by ID using this.$
+                this.$.header.textContent = 'Hello!';
+            },
+            properties:{
+                userName: String
+            }
+          });
+      </script>
+    </dom-module>
