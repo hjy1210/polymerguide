@@ -1,0 +1,27 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<dom-module id="iron-pages-demo">
+    <template>
+        <style>
+        </style>
+        
+        <iron-pages selected="1">
+          <div>One click to change</div>
+          <div>Two click to change</div>
+          <div>Three click to change</div>
+        </iron-pages>
+    </template>
+
+    <script>
+      Polymer({
+        is: 'iron-pages-demo',
+        listeners:{
+          'tap': 'doTap'
+        },
+        doTap:function(){
+          var pages = document.querySelector('iron-pages');
+          pages.selectNext();
+        }
+      });
+    </script>
+</dom-module>
